@@ -18,33 +18,50 @@
                 <div class="form-group mb-3">
                             <label class="form-label">Author</label>
                             <input type="text" name="author" class="form-control">
+                            @error('author')
+                                <div>{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="form-label">Title</label>
                             <input type="text" name="title" class="form-control">
+                            @error('title')
+                                <div>{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="form-label">Description</label>
                             <input type="text" name="description" class="form-control">
+                            @error('description')
+                                <div>{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="form-label">ISBN</label>
                             <input type="text" name="isbn" class="form-control">
+                            @error('isbn')
+                                <div>{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="form-label">Published Year</label>
                             <input type="date" name="published_year" class="form-control">
+                            @error('published_year')
+                                <div>{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <button class="btn btn-primary">Save Changes</button>
                         </div>
                 </form>
-
+                @if(session('success'))
+                <div>{{ session('success')}}</div>
+                @endif
             </div>
 
         </div>
