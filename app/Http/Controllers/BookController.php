@@ -41,19 +41,20 @@ class BookController extends Controller
             'title' => 'required',
             'description' => 'required',
             'isbn' => 'required',
-            'published_year' => 'required|date',
-            
+            'published_year' => 'required',
+
+
         ]);
 
-        return back()->with('success', 'Data saved successfully');
-        // $book = new Book;
-        // $book-> author = $request['author'];
-        // $book-> title = $request['title'];
-        // $book-> description = $request['description'];
-        // $book-> isbn = $request['isbn'];
-        // $book-> published_year = $request['published_year'];
-        // $book->save();
+        $book = new Book;
+        $book-> author = $request['author'];
+        $book-> title = $request['title'];
+        $book-> description = $request['description'];
+        $book-> isbn = $request['isbn'];
+        $book-> published_year = $request['published_year'];
+        $book->save();
         
+        return back()->with('success', 'Data saved successfully');
         //  return redirect()->to('books');
         //  //return redirect()->back();
     }
