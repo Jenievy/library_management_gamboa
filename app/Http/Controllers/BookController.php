@@ -36,16 +36,26 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $book = new Book;
-        $book-> author = $request['author'];
-        $book-> title = $request['title'];
-        $book-> description = $request['description'];
-        $book-> isbn = $request['isbn'];
-        $book-> published_year = $request['published_year'];
-        $book->save();
+        $request->validate([
+            'author' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'isbn' => 'required',
+            'published_year' => 'required|date',
+            
+        ]);
+
+        return back()->with('success', 'Data saved successfully');
+        // $book = new Book;
+        // $book-> author = $request['author'];
+        // $book-> title = $request['title'];
+        // $book-> description = $request['description'];
+        // $book-> isbn = $request['isbn'];
+        // $book-> published_year = $request['published_year'];
+        // $book->save();
         
-         return redirect()->to('books');
-         //return redirect()->back();
+        //  return redirect()->to('books');
+        //  //return redirect()->back();
     }
     /**
      * Display the specified resource.
